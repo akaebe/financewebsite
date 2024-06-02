@@ -3,6 +3,13 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #fff;
     color: #000;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
 }
 
 header, main {
@@ -10,14 +17,20 @@ header, main {
     padding: 20px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+body.dark-mode header, body.dark-mode main {
+    background-color: #333;
+}
+
 .logo {
     font-size: 24px;
     font-weight: bold;
 }
+
 .logo img {
-    height: 30px; 
-    width: 25px; 
-    margin-top:10px;
+    height: 30px;
+    width: 25px;
+    margin-top: 10px;
 }
 
 .container {
@@ -27,7 +40,6 @@ header, main {
     align-items: center;
     justify-content: space-between;
 }
-
 
 nav ul {
     list-style: none;
@@ -43,8 +55,12 @@ nav a {
     font-weight: 600;
 }
 
+body.dark-mode nav a {
+    color: #fff;
+}
+
 #hometext {
-    color: red!important;
+    color: red !important;
 }
 
 .download-btn {
@@ -59,6 +75,7 @@ nav a {
 .download-btn:hover {
     background-color: #fff;
     color: #000;
+    border: 1px solid #000;
 }
 
 main {
@@ -88,20 +105,19 @@ main {
     gap: 20px;
 }
 
-.get-started-btn,.watch-video-btn {
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
 .get-started-btn {
     background-color: #000;
     color: #fff;
+    border: 1px solid;
+    padding: 0 3rem;
+    height: 3rem;
+    display: grid;
+    place-items: center;
+    text-transform: uppercase;
     position: relative;
     overflow: hidden;
-    padding: 0 3rem;
-    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 700;
 }
 
 .get-started-btn span {
@@ -110,14 +126,12 @@ main {
 
 .get-started-btn:before {
     content: "";
+    background: #fff;
     position: absolute;
-    top: 0;
     left: calc(-3rem);
     height: 100%;
     width: calc(100% + 3rem);
-    background: #fff;
     transform: rotate(-90deg);
-    transform-origin: center;
     transition: transform 0.3s;
     z-index: -1;
 }
@@ -136,7 +150,7 @@ main {
     font-weight: 500;
 }
 
-.watch-video-btn.play-icon {
+.watch-video-btn .play-icon {
     font-size: 16px;
     margin-right: 8px;
 }
@@ -146,11 +160,99 @@ main {
     max-width: 80%;
     opacity: 90%;
 }
+
 .hero-section img {
     max-height: 200px;
     max-width: 400px;
+    width: 500px;
 }
 
+.container2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    padding-right: 50px;
+    width: 400px;
+}
+
+.features {
+    flex: 1;
+    padding-top: 120px;
+    padding-bottom: 60px;
+}
+
+.features h1 {
+    font-size: 3em;
+    color: #000;
+    font-weight: bolder;
+}
+
+body.dark-mode .features h1 {
+    color: #fff;
+}
+
+.features h3 {
+    color: red;
+    font-size: large;
+}
+
+.feature-item {
+    margin-top: 20px;
+}
+
+.feature-item h2 {
+    font-size: 1.5em;
+    color: black;
+}
+
+body.dark-mode .feature-item h2 {
+    color: white;
+}
+
+.feature-item p {
+    font-size: 1em;
+    color: #666;
+    margin: 0;
+    padding-top: 5px;
+}
+
+body.dark-mode .feature-item p {
+    color: #ccc;
+}
+
+box-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    fill: #FF0000;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 1000;
+}
 .get-started-btn,.get-started-btn *,.get-started-btn :after,.get-started-btn:before,.get-started-btn:after,.get-started-btn:before {
     border: 0 solid;
     box-sizing: border-box;
@@ -223,7 +325,4 @@ main {
 
 .get-started-btn:hover:before {
     transform: rotate(0deg);
-}
-.hero-section img{
-    width: 500px;
 }
